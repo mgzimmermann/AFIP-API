@@ -31,7 +31,6 @@ class Tokens {
 
 						resolve(this.client);
 					}
-
 				});
 			}
 		});
@@ -58,7 +57,7 @@ class Tokens {
 				if (err) {
 					reject(err);
 				} else {
-					console.log("Current time: ", date);
+					console.log("[getCurrentTime] Current time: ", date);
 					resolve(date);
 				}
 			});
@@ -149,6 +148,7 @@ class Tokens {
 								var xml_response = res.envelope.body.logincmsresponse.logincmsreturn;
 
 								if (xml_response) {
+
 									this.parseXML(xml_response).then((res) => {
 										//console.info(res.loginticketresponse.header);
 										var credentials = res.loginticketresponse.credentials;
@@ -159,10 +159,15 @@ class Tokens {
 										});
 
 										resolve(credentials);
+
 									}).catch(reject);
+
 								} else {
+
 									reject(res.envelope.body.fault);
+
 								}
+
 							}).catch(reject);
 						});
 					});
@@ -170,7 +175,9 @@ class Tokens {
 				});
 
 			} else {
+
 				resolve(this.cache.getItem(service).credentials);
+
 			}
 
 		});
