@@ -52,8 +52,11 @@ Si da error de validacion de token:
 ```
 
 se puede acceder al endpoint "api/wsfev1/refresh/token" via POST para regenerar el token:
-```curl --data "" http://localhost:3000/api/wsfev1/refresh/token```
+```
+curl --data "" http://localhost:3000/api/wsfev1/refresh/token
+```
 
+Ejemplos con node se puede encontrar en la carpeta /examples.
 
 
 
