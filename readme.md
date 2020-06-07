@@ -22,7 +22,7 @@ Una vez configurado el servicio con los certificados correspondientes del usuari
 1) Luego de descargar Postman importar el archivo que se encuentra en la carpeta "postman"  
 2) Para aquellos Endpoints que requiren CUIT Revisar los parametros Body y cambiar CUIT  
 
-### Ejemplos via CURL
+### Ejemplos via CURL y JSON
 
 > Ejemplos utilizando parametros escritos en JSON:
 
@@ -31,19 +31,36 @@ Una vez configurado el servicio con los certificados correspondientes del usuari
 devuelve:
 ```{"AppServer":"OK","DbServer":"OK","AuthServer":"OK"}```
 
-Un llamado mas interesante (reemplazando el Cuit con el cuit correspondiente
+Un llamado más interesante (reemplazando el Cuit con el cuit correspondiente
   al certificado):
 
 ```curl -H "Content-Type: application/json" --data '{"auth":{"key": "Auth", "token":"Token", "sign":"Sign"}, "params":{"Auth": {"Cuit": "00000000000"}, "CbteTipo":1, "PtoVta": "0002"}}' http://localhost:3000/api/wsfev1/FECompUltimoAutorizado
  ```
 
-### Cómo funcionan los endpoints  
-> La idea del API es hacer genéricas las llamadas y preservar la autenticación obtenida  
+Si da error de validacion de token:
+```
+"Err": [
+            {
+                "Code": 600,
+                "Msg": "ValidacionDeToken: No validaron las fechas del token GenTime, ExpTime, NowUTC: 1591443148 (6/6/2020 11:31:58 AM), 1591486408 (6/6/2020 11:33:28 PM), 6/7/2020 12:44:12 AM"
+            }
+        ]
+```
 
-1) Describir todos los metodos del endpoint: ```/api/aqui_servicio/describe```. Ej. de Servicio: ```wsfev1```  
-2) Para realizar llamado ```/api/aqui_servicio/aqui_metodo```  
-2a) Servicio: ```wsfev1```  
-2b) Método: ```FEDummy```. Puede ser cualquiera de los obtenidos mediante describe.
+se puede acceder al endpoint "api/wsfev1/refresh/token" via POST para regenerar el token:
+```curl --data "" http://localhost:3000/api/wsfev1/refresh/token```
+
+
+
+
+ ### Cómo funcionan los endpoints  
+ > La idea del API es hacer genéricas las llamadas y preservar la autenticación obtenida  
+
+ 1) Describir todos los metodos del endpoint: ```/api/aqui_servicio/describe```. Ej. de Servicio: ```wsfev1```  
+ 2) Para realizar llamado ```/api/aqui_servicio/aqui_metodo```  
+ 2a) Servicio: ```wsfev1```  
+ 2b) Método: ```FEDummy```. Puede ser cualquiera de los obtenidos mediante describe.
+
 
 Versiones:
 
