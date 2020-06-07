@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "97815701-69ee-4e90-bd40-8a342b1d9ff4",
+		"_postman_id": "a0cac4d9-757e-4bae-8c4d-4724f856d528",
 		"name": "CASFe",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -93,12 +93,12 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/wsfev1/FEParamGetTiposTributos",
+					"raw": "http://localhost:3000/api/wsfev1/FEParamGetTiposTributos",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"api",
 						"wsfev1",
@@ -302,16 +302,38 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/wsfev1/FECAEASolicitar",
+					"raw": "http://localhost:3000/api/wsfev1/FECAEASolicitar",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
-					"port": "5000",
+					"port": "3000",
 					"path": [
 						"api",
 						"wsfev1",
 						"FECAEASolicitar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint Refresh Token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/wsfev1/refresh/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wsfev1",
+						"refresh",
+						"token"
 					]
 				}
 			},
