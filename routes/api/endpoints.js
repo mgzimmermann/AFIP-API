@@ -53,12 +53,13 @@ class Endpoints {
 
 			this.createClientForService(service).then((client) => {
 				var params = { ...req.body.params };
-				console.info(req.body);
+				console.info(service, req.body);
 
-				params[`${req.body.auth.key}`] = {
+				// ESTO PISABA el CUIT
+				//params[`${req.body.auth.key}`] = {
 					//Token: tokens.token,
 					//Sign: tokens.sign
-				};
+				//};
 
 				params[`${req.body.auth.key}`][`${req.body.auth.token}`] = tokens.token;
 				params[`${req.body.auth.key}`][`${req.body.auth.sign}`] = tokens.sign;
