@@ -11,14 +11,14 @@ const UltimoComprobante = async (cuit) => {
       "Cuit": cuit
     },
     "CbteTipo": 1,
-    "PtoVta": "0002"
+    "PtoVta": "0003"
   }
-  return await apiRequest('wsfev1', 'FECompUltimoAutorizado', params)
+  return await apiRequest('wsfexv1', 'FEXGetLast_CMP', params)
 }
 
 //////////////////////////////////////////////////////////////////
 // Genera factura
-const FacturaA = (cuit, cbteNro) => {
+const FacturaE = (cuit, cbteNro) => {
   return new Promise((resolve, reject) => {
     const params = {
       "Auth": {
@@ -96,20 +96,6 @@ const FacturaA = (cuit, cbteNro) => {
   UltimoComprobante(cuit).then( ultimo => {
     console.log('OTRO', ultimo)
     const {CbteNro} = ultimo;
-    FacturaA(cuit, CbteNro + 1).then( factA => {
-      console.log('FIN', factA)
-      factA.forEach( fact => {
-        if (fact['CAE'] && fact['CAEFchVto']) {
-          console.log('CAE', fact['CbteDesde'], fact['CbteHasta'], fact['CAE'], fact['CAEFchVto'])
-        }
-        if (fact['Resultado'] && fact['Observaciones']) {
-          console.log('OBS', fact['Observaciones'])
-        }
-      })
-
-    }).catch( err => {
-      console.error(err)
-    });
   }).catch( err => {
     console.error(err)
   })
