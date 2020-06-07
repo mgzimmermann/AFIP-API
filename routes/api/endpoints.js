@@ -34,6 +34,7 @@ class Endpoints {
 
 	recreate_token(req, res) {
 		var service = req.params.service;
+		console.info("[recreate_token]", service)
 
 		WSAA.generateToken(service, true)
 			.then((tokens) => res.send(tokens))
@@ -53,7 +54,7 @@ class Endpoints {
 
 			this.createClientForService(service).then((client) => {
 				var params = { ...req.body.params };
-				console.info(service, req.body);
+				console.info("[endpoint]", service, req.body);
 
 				// ESTO PISABA el CUIT
 				//params[`${req.body.auth.key}`] = {
@@ -88,7 +89,8 @@ class Endpoints {
 
 	describe(req, res) {
 		var service = req.params.service;
-
+		console.info("[describe]", service)
+		
 		WSAA.generateToken(service).then((tokens) => {
 
 			this.createClientForService(service).then((client) => {
