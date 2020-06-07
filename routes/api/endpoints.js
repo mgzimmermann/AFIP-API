@@ -35,7 +35,7 @@ class Endpoints {
 	recreate_token(req, res) {
 		var service = req.params.service;
 
-		WSAA.generateToken(service)
+		WSAA.generateToken(service, true)
 			.then((tokens) => res.send(tokens))
 			.catch((err) => {
 				res.send({
