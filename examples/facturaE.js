@@ -2,6 +2,7 @@
 
 var moment = require('moment');
 var apiRequest = require('./apiRequest');
+var random = require('random')
 
 /////////////////////////////////////////////////////////////////////
 // Busca el ultimo comprobante para tipo 1 (FACTURA A) y PTO DE VENTA
@@ -26,8 +27,8 @@ const FacturaE = (cuit, cbteNro) => {
       },
 
       "Cmp": {
-         'Id' 		      : 14123123,    // Id de registro
-         //'Fecha_cbte'   : moment().format('YYYYMMDD'), // Fecha comprobante
+         'Id' 		      : random.int(0,10000),    // Id de registro. OBS si existe va a traer el registro viejo de AFIP
+         'Fecha_cbte'   : moment().format('YYYYMMDD'), // Fecha comprobante
          'Punto_vta' 		: 3,    // Punto de venta
          'Cbte_Tipo' 		: 19,   // Tipo de comprobante (19, 20 o 21)
          'Cbte_nro'     : cbteNro, // Nro de comprobante
@@ -39,7 +40,7 @@ const FacturaE = (cuit, cbteNro) => {
          'Id_impositivo': '4123123', // Id impositivo. No obligatorio
          'Moneda_Id'    : 'DOL',
          'Moneda_ctz'   : 70.1570,  // Cotizacion de moneda
-         'Imp_total'    : 100.12, // Importe total de operacion
+         'Imp_total'    : 100.0, // Importe total de operacion
          'Forma_pago'   : "CONTADO",
          'Fecha_pago'   : moment().add(5,'days').format('YYYYMMDD'),
          'Incoterms'    : "FOB",
@@ -48,10 +49,20 @@ const FacturaE = (cuit, cbteNro) => {
          'Items': [
            {
              'Item': {
+               "Pro_codigo":'a123',
                "Pro_ds": "Servicio de informatica",
                //"Pro_qty": ,
                "Pro_umed": 0,
-               "Pro_total_item": 100.12
+               "Pro_total_item": 99.0
+             }
+           },
+           {
+             'Item': {
+               "Pro_codigo":'b123',
+               "Pro_ds": "Servicio de informatica",
+               //"Pro_qty": ,
+               "Pro_umed": 0,
+               "Pro_total_item": 100.0
              }
            }
          ]
