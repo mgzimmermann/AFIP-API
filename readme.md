@@ -16,7 +16,7 @@ Una vez configurado el servicio con los certificados correspondientes del usuari
 3b) Para Producción: ```node server.js```    
 
 
-### Endpoints  
+### Ejemplos via POSTMAN  
 > Para probar los endpoints que genera el API se proveen ejemplos con el API WSFEv1 mediante postman (Descarga: https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop )  
 
 1) Luego de descargar Postman importar el archivo que se encuentra en la carpeta "postman"  
@@ -24,9 +24,15 @@ Una vez configurado el servicio con los certificados correspondientes del usuari
 
 ### Ejemplos via CURL
 
-Ejemplos utilizando parametros escritos en JSON:
+> Ejemplos utilizando parametros escritos en JSON:
 
 ```curl -H "Content-Type: application/json" --data '{"auth":{"key": "Auth"}, "params":{"Auth": {"Cuit": "00000000000"}}}' http://localhost:3000/api/wsfev1/FEDummy```
+
+devuelve:
+```{"AppServer":"OK","DbServer":"OK","AuthServer":"OK"}```
+
+Un llamado mas interesante (reemplazando el Cuit con el cuit correspondiente
+  al certificado):
 
 ```curl -H "Content-Type: application/json" --data '{"auth":{"key": "Auth", "token":"Token", "sign":"Sign"}, "params":{"Auth": {"Cuit": "00000000000"}, "CbteTipo":1, "PtoVta": "0002"}}' http://localhost:3000/api/wsfev1/FECompUltimoAutorizado
  ```
