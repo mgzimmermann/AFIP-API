@@ -54,7 +54,7 @@ class Endpoints {
 
 			this.createClientForService(service).then((client) => {
 				var params = { ...req.body.params };
-				console.info("[endpoint]", service, req.body, params);
+				console.info("[endpoint]", service, endpoint, req.body, params);
 
 				// ESTO PISABA el CUIT
 				//params[`${req.body.auth.key}`] = {

@@ -5,7 +5,7 @@ La función principal de este API es simplificar el acceso a los WebServices de 
 
 Una vez configurado el servicio con los certificados correspondientes del usuario contribuyente, este API expone los servicios y métodos de la AFIP, gestionando el token de acceso y su regeneración. El sistema que consuma este API lo hace con JSON con el mismo schema que los servicios de la AFIP.
 
-[Documentacion de WebService de facturacion](https://www.afip.gob.ar/facturadecreditoelectronica/documentos/manual_desarrollador_COMPG.pdf)
+[Documentacion de WebService de facturacion](https://www.afip.gob.ar/ws/documentacion/ws-factura-electronica.asp)
 
 ### Pasos para hacer funcionar el API  
 0) Para generar los certificados y darse de alta en el Servicio de Homologación (Pruebas) usar esta web: [AFIP WS](http://www.afip.gob.ar/ws)  
