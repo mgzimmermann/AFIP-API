@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "97815701-69ee-4e90-bd40-8a342b1d9ff4",
+		"name": "CASFe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/wsfev1/describe",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/wsfev1/describe",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wsfev1",
+						"describe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint FEDummy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth[key]",
+							"value": "Auth",
+							"type": "text"
+						},
+						{
+							"key": "Auth[Cuit]",
+							"value": "00000000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/wsfev1/FEDummy",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wsfev1",
+						"FEDummy"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint FEParamGetTiposTributos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth[key]",
+							"value": "Auth",
+							"type": "text"
+						},
+						{
+							"key": "params[Auth][Cuit]",
+							"value": "00000000000",
+							"type": "text"
+						},
+						{
+							"key": "auth[token]",
+							"value": "Token",
+							"type": "text"
+						},
+						{
+							"key": "auth[sign]",
+							"value": "Sign",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/wsfev1/FEParamGetTiposTributos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"wsfev1",
+						"FEParamGetTiposTributos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoing UltimoAutorizado",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth[key]",
+							"value": "Auth",
+							"type": "text"
+						},
+						{
+							"key": "auth[token]",
+							"value": "Token",
+							"type": "text"
+						},
+						{
+							"key": "auth[sign]",
+							"value": "Sign",
+							"type": "text"
+						},
+						{
+							"key": "params[Auth][Cuit]",
+							"value": "00000000000",
+							"type": "text"
+						},
+						{
+							"key": "params[CbteTipo]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "params[PtoVta]",
+							"value": "0002",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/wsfev1/FECompUltimoAutorizado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wsfev1",
+						"FECompUltimoAutorizado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint GetPtoVta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth[key]",
+							"value": "Auth",
+							"type": "text"
+						},
+						{
+							"key": "auth[token]",
+							"value": "Token",
+							"type": "text"
+						},
+						{
+							"key": "auth[sign]",
+							"value": "Sign",
+							"type": "text"
+						},
+						{
+							"key": "params[Auth][Cuit]",
+							"value": "00000000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/wsfev1/FEParamGetPtosVenta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wsfev1",
+						"FEParamGetPtosVenta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint GetTiposCbte",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth[key]",
+							"value": "Auth",
+							"type": "text"
+						},
+						{
+							"key": "auth[token]",
+							"value": "Token",
+							"type": "text"
+						},
+						{
+							"key": "auth[sign]",
+							"value": "Sign",
+							"type": "text"
+						},
+						{
+							"key": "params[Auth][Cuit]",
+							"value": "00000000000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/wsfev1/FEParamGetTiposCbte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"wsfev1",
+						"FEParamGetTiposCbte"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Endpoint FECAEASolicitar",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "auth[key]",
+							"value": "Auth",
+							"type": "text"
+						},
+						{
+							"key": "params[Auth][Cuit]",
+							"value": "00000000000",
+							"type": "text"
+						},
+						{
+							"key": "auth[token]",
+							"value": "Token",
+							"type": "text"
+						},
+						{
+							"key": "auth[sign]",
+							"value": "Sign",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/wsfev1/FECAEASolicitar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"wsfev1",
+						"FECAEASolicitar"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
