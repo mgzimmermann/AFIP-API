@@ -132,6 +132,9 @@ class Tokens {
 		if (service == 'wsfev1') {
 			service = 'wsfe';
 		}
+		if (service == 'wsfexv1') {
+			service = 'wsfex';
+		}
 
 		return new Promise((resolve, reject) => {
 
@@ -143,28 +146,33 @@ class Tokens {
 						client.loginCms({
 							in0: data
 						}, (err, result, raw, soapHeader) => {
+
 							this.parseXML(raw).then((res) => {
 								//console.info(res.envelope.body);
-								var xml_response = res.envelope.body.logincmsresponse.logincmsreturn;
+								if (res.envelope.body.fault) {
 
-								if (xml_response) {
-
-									this.parseXML(xml_response).then((res) => {
-										//console.info(res.loginticketresponse.header);
-										var credentials = res.loginticketresponse.credentials;
-
-										this.cache.setItem(service, {
-											date: new Date(),
-											credentials: credentials
-										});
-
-										resolve(credentials);
-
-									}).catch(reject);
+									reject(res.envelope.body.fault);
 
 								} else {
 
-									reject(res.envelope.body.fault);
+									var xml_response = res.envelope.body.logincmsresponse.logincmsreturn;
+
+									if (xml_response) {
+
+										this.parseXML(xml_response).then((res) => {
+											//console.info(res.loginticketresponse.header);
+											var credentials = res.loginticketresponse.credentials;
+
+											this.cache.setItem(service, {
+												date: new Date(),
+												credentials: credentials
+											});
+
+											resolve(credentials);
+
+										}).catch(reject);
+
+									}
 
 								}
 
