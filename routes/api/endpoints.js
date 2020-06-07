@@ -54,14 +54,14 @@ class Endpoints {
 
 			this.createClientForService(service).then((client) => {
 				var params = { ...req.body.params };
-				console.info("[endpoint]", service, req.body);
+				console.info("[endpoint]", service, req.body, params);
 
 				// ESTO PISABA el CUIT
 				//params[`${req.body.auth.key}`] = {
 					//Token: tokens.token,
 					//Sign: tokens.sign
 				//};
-
+				params[`${req.body.auth.key}`] = params[`${req.body.auth.key}`] || {}
 				params[`${req.body.auth.key}`][`${req.body.auth.token}`] = tokens.token;
 				params[`${req.body.auth.key}`][`${req.body.auth.sign}`] = tokens.sign;
 
@@ -90,7 +90,7 @@ class Endpoints {
 	describe(req, res) {
 		var service = req.params.service;
 		console.info("[describe]", service)
-		
+
 		WSAA.generateToken(service).then((tokens) => {
 
 			this.createClientForService(service).then((client) => {
