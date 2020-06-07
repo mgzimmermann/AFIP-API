@@ -154,7 +154,7 @@ const FacturaA = (cuit, cbteNro) => {
 
 // ejecuta inmediato
 (async () => {
-  const cuit = '20205400703'
+  const cuit = '20111111112'
 
   UltimoComprobante(cuit).then( ultimo => {
     console.log('OTRO', ultimo)
