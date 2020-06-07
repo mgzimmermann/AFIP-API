@@ -35,11 +35,11 @@ Un llamado más interesante (reemplazando el Cuit con el cuit correspondiente
   al certificado):
 
 ```
-curl -H "Content-Type: application/json" --data
+curl -H "Content-Type: application/json" --data \
   '{"auth":{"key": "Auth", "token":"Token", "sign":"Sign"},
-  "params":{"Auth": {"Cuit": "00000000000"}, "CbteTipo":1, "PtoVta": "0002"}}'
+  "params":{"Auth": {"Cuit": "00000000000"}, "CbteTipo":1, "PtoVta": "0002"}}' \
   http://localhost:3000/api/wsfev1/FECompUltimoAutorizado
- ```
+```
 
 Si da error de validacion de token:
 ```
