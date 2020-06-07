@@ -35,7 +35,7 @@ const apiRequest = (service, method, params) => {
       res.on('end', () => {
         console.log(`[${service}/${method}] No more data in response.`);
         try {
-          const jj = JSON.parse(data);
+          const jj = data ? JSON.parse(data) : {};
 
           const {Errors} = jj;
           if (Errors) {
@@ -46,7 +46,7 @@ const apiRequest = (service, method, params) => {
 
         } catch (e) {
 
-          console.error(`[${service}/${method}] DATA problems: ${e.message}`);
+          console.error(`[${service}/${method}] JSON parser problems: ${data} ${e.message}`);
           reject( e )
 
         }

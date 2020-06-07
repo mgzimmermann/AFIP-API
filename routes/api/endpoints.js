@@ -74,8 +74,9 @@ class Endpoints {
 						res.send(result);
 					}
 				});
+
 			}).catch(err => {
-				console.info(err);
+				console.error(err);
 				res.send({ result: false });
 			});
 
